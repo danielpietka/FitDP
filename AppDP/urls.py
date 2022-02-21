@@ -19,11 +19,13 @@ from FitApplication import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', ),
-
+    path('', views.home, name="home"),
     #Auth
     path('signup/', views.signupuser, name="signupuser"),
-
+    path('logout/', views.logoutuser, name="logoutuser"),
+    path('login/', views.loginuser, name="loginuser"),
     #App
-    path('home/', views.home, name="home"),
+    path('in/', views.signedin, name="signedin"),
+    path('diet/', views.dietuser, name="dietuser"),
 ]
+

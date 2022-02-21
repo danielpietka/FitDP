@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% load static %}
+
+
+
+<input type="text" id="foodInput" onkeyup="filterTable()" placeholder="Search for names.." title="Type in a name">
+<table id="foodTable">
+    <thead>
+        <th>name</th>
+        <th onclick="sortTable(1)">kcal/100g</th>
+        <th onclick="sortTable(2)">fat</th>
+        <th onclick="sortTable(3)">carbs</th>
+        <th onclick="sortTable(4)">protein</th>
+    </thead>
+    <tbody>
+        {% for foods in foods %}
+        <tr>
+            <td>
+                {{foods}}
+            </td>
+            <td>
+                {{foods.kcal}}
+            </td>
+            <td>
+                {{foods.fat}} 
+            </td>
+            <td>
+                {{foods.carbs}} 
+            </td>
+            <td>
+                {{foods.protein}}
+            </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+    
+</table>
+
+
+<script src="{% static 'script/dietuser.js' %}"></script> 
+{% endblock %}
